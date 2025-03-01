@@ -11,4 +11,3 @@ def sample(type: str):
         with open(f"./dataset/{type}.npy", "wb") as f:
             np.save(f, data.reshape(len(data) // 785, 785))
 
-

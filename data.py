@@ -9,6 +9,3 @@ def txtToArr(type: str):
                 np.genfromtxt(f"./olddata/{type}{i}.txt", dtype="int32", delimiter=" "),
             )
 
-
-txtToArr("test")
-txtToArr("train")
