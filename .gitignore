@@ -1,3 +1,4 @@
 # ignore all .npy files
 *.npy
-# *.txt
+*.txt
+olddata/
