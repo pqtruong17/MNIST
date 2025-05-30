@@ -1,10 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-import sys
 
 
-def heatMap(arr: any, k: int):
+def heatMap(arr, k: int):
     if not os.path.exists("./graphs"):
         os.mkdir("./graphs")
     labels = [f"{i}" for i in range(np.shape(arr)[0])]
@@ -20,16 +19,3 @@ def heatMap(arr: any, k: int):
     ax.xaxis.set_ticks_position("top")
     plt.tight_layout()
     fig.savefig(f"./graphs/heatMapOf{k}.png", bbox_inches="tight", pad_inches=1)
-
-
-def main(args):
-    for arg in args:
-        if arg == "graphs":
-            with open("./weights/weights.npy", "rb") as f:
-                for i in range(10):
-                    arr = np.load(f)[1:785].reshape(28, 28)
-                    heatMap(arr, i)
-
-
-if __name__ == "__main__":
-    main(sys.argv[1:])

@@ -1,4 +1,8 @@
 # ignore all .npy files
 *.npy
 *.txt
+*.png
 olddata/
+dataset/
+weights/
+graphs/

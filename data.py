@@ -1,16 +1,15 @@
-import numpy as np
-import os
+import numpy as np, os, sys
 
-
-def txtToArr(type: str):
-    if not os.path.exists("./dataset"):
-        os.mkdir("./dataset")
+def sample(type: str):
     with open(f"./dataset/{type}.npy", "wb") as f:
         for i in range(10):
-            np.save(
-                f,
-                np.genfromtxt(f"./olddata/{type}{i}.txt", dtype="int32", delimiter=" "),
-            )
+            np.save(f, np.genfromtxt(f"./olddata/{type}{i}.txt", dtype="int32", delimiter=" "),)
 
-# txtToArr("train")
-# txtToArr("test")
+def main(args):
+    if not os.path.exists("./dataset"):
+        os.mkdir("./dataset")
+        sample("test")
+        sample("train")
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
